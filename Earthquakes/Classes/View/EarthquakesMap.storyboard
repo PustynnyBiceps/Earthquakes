@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2MQ-5X-6Hk">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <development version="5100" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Location-->
+        <scene sceneID="jIp-2O-gcq">
+            <objects>
+                <viewController id="2MQ-5X-6Hk" customClass="EarthquakesMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LWy-AN-Y2S"/>
+                        <viewControllerLayoutGuide type="bottom" id="0pt-Ej-ISW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p8g-ic-XcL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mge-l6-9t1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="231"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2MQ-5X-6Hk" id="jaJ-Y5-lkM"/>
+                                </connections>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="COJ-TC-pfe">
+                                <rect key="frame" x="0.0" y="273" width="320" height="231"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="twitter" id="Noq-zr-uFt" customClass="TwitterCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Noq-zr-uFt" id="hGN-bM-QJd">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vtx-Kj-oOI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="Vtx-Kj-oOI" firstAttribute="top" secondItem="Noq-zr-uFt" secondAttribute="top" id="9FO-7d-m7T"/>
+                                            <constraint firstItem="Vtx-Kj-oOI" firstAttribute="trailing" secondItem="Noq-zr-uFt" secondAttribute="trailing" id="Rk6-gR-g08"/>
+                                            <constraint firstItem="Vtx-Kj-oOI" firstAttribute="centerY" secondItem="Noq-zr-uFt" secondAttribute="centerY" id="Zuh-KD-w7C"/>
+                                            <constraint firstItem="Vtx-Kj-oOI" firstAttribute="leading" secondItem="Noq-zr-uFt" secondAttribute="leading" id="uje-mv-whZ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="tweetTextView" destination="Vtx-Kj-oOI" id="lCu-VS-rNz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2MQ-5X-6Hk" id="Ph6-ms-rsl"/>
+                                    <outlet property="delegate" destination="2MQ-5X-6Hk" id="nbj-zu-UK4"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xF-FX-XHc">
+                                <rect key="frame" x="0.0" y="239" width="320" height="25"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Twitter_bird_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gqv-Qf-a0A">
+                                        <rect key="frame" x="10" y="-2" width="32" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="6yn-xz-vo5"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Recent tweets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" useAutomaticPreferredMaxLayoutWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wRf-5l-yVn">
+                                        <rect key="frame" x="50" y="2" width="110" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3mm-Kj-30P">
+                                        <rect key="frame" x="292" y="3" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Gqv-Qf-a0A" firstAttribute="leading" secondItem="2xF-FX-XHc" secondAttribute="leading" constant="10" id="Qxa-9X-fXE"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gqv-Qf-a0A" secondAttribute="bottom" constant="-3" id="Sl3-hq-gbz"/>
+                                    <constraint firstItem="Gqv-Qf-a0A" firstAttribute="top" secondItem="2xF-FX-XHc" secondAttribute="top" constant="-2" id="bze-q2-dkW"/>
+                                    <constraint firstItem="wRf-5l-yVn" firstAttribute="leading" secondItem="Gqv-Qf-a0A" secondAttribute="trailing" constant="8" symbolic="YES" id="eCd-lf-h6K"/>
+                                    <constraint firstItem="3mm-Kj-30P" firstAttribute="trailing" secondItem="2xF-FX-XHc" secondAttribute="trailingMargin" id="hvx-3F-4ON"/>
+                                    <constraint firstItem="wRf-5l-yVn" firstAttribute="centerY" secondItem="2xF-FX-XHc" secondAttribute="centerY" id="pan-XY-K77"/>
+                                    <constraint firstAttribute="height" constant="25" id="rIP-tp-0bR"/>
+                                    <constraint firstItem="3mm-Kj-30P" firstAttribute="bottom" secondItem="wRf-5l-yVn" secondAttribute="bottom" id="uDD-pm-hla"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99989891052246094" green="1" blue="0.99984180927276611" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="2xF-FX-XHc" firstAttribute="leading" secondItem="p8g-ic-XcL" secondAttribute="leading" id="2dR-Ta-MKS"/>
+                            <constraint firstItem="mge-l6-9t1" firstAttribute="trailing" secondItem="2xF-FX-XHc" secondAttribute="trailing" id="39g-MO-bJQ"/>
+                            <constraint firstItem="COJ-TC-pfe" firstAttribute="trailing" secondItem="2xF-FX-XHc" secondAttribute="trailing" id="DUN-o2-AtB"/>
+                            <constraint firstItem="mge-l6-9t1" firstAttribute="height" secondItem="COJ-TC-pfe" secondAttribute="height" id="FIT-Rx-kAA"/>
+                            <constraint firstItem="COJ-TC-pfe" firstAttribute="bottom" secondItem="0pt-Ej-ISW" secondAttribute="top" id="Q34-Ec-cfO"/>
+                            <constraint firstItem="2xF-FX-XHc" firstAttribute="top" secondItem="mge-l6-9t1" secondAttribute="bottom" constant="8" symbolic="YES" id="X7c-sl-wvU"/>
+                            <constraint firstItem="2xF-FX-XHc" firstAttribute="leading" secondItem="COJ-TC-pfe" secondAttribute="leading" id="gP1-Ri-3rh"/>
+                            <constraint firstItem="COJ-TC-pfe" firstAttribute="top" secondItem="2xF-FX-XHc" secondAttribute="bottom" constant="9" id="gcY-Yk-Xzk"/>
+                            <constraint firstAttribute="trailing" secondItem="COJ-TC-pfe" secondAttribute="trailing" id="hN9-Xh-cNc"/>
+                            <constraint firstItem="mge-l6-9t1" firstAttribute="leading" secondItem="2xF-FX-XHc" secondAttribute="leading" id="qB9-ND-AHH"/>
+                            <constraint firstItem="mge-l6-9t1" firstAttribute="top" secondItem="LWy-AN-Y2S" secondAttribute="bottom" id="yQf-sr-Ueh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Location" id="sQw-Qm-Yb5"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="mapView" destination="mge-l6-9t1" id="8Mc-m6-wlY"/>
+                        <outlet property="twitterActivityIndicator" destination="3mm-Kj-30P" id="ayi-8B-LBA"/>
+                        <outlet property="twitterTableView" destination="COJ-TC-pfe" id="jAy-ud-ykN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YmA-s3-GWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="-272"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Twitter_bird_icon.png" width="500" height="500"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
